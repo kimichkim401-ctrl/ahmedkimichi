@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lebenslauf – Ahmed Khaled Elkmashi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Exo 2', sans-serif;
+      background: #050a1a;
+      color: #e2e8f0;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #080f22;
+      border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(59,130,246,0.15);
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #0d1b3e 0%, #1a0533 100%);
+      padding: 40px 48px;
+      border-bottom: 1px solid rgba(59,130,246,0.15);
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .avatar-box {
+      width: 88px;
+      height: 88px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #1e3a8a, #4c1d95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Orbitron', monospace;
+      font-size: 28px;
+      font-weight: 800;
+      color: #60a5fa;
+      flex-shrink: 0;
+      box-shadow: 0 0 30px rgba(59,130,246,0.3);
+      border: 2px solid rgba(59,130,246,0.4);
+    }
+
+    .header-info h1 {
+      font-family: 'Orbitron', monospace;
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .header-info .title {
+      font-size: 14px;
+      color: #60a5fa;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .header-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    .contact-item a { color: #60a5fa; text-decoration: none; }
+    .contact-item a:hover { text-decoration: underline; }
+
+    /* Body */
+    .body {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 0;
+    }
+
+    .main-col {
+      padding: 36px 40px;
+      border-right: 1px solid rgba(59,130,246,0.08);
+    }
+
+    .side-col {
+      padding: 36px 28px;
+    }
+
+    /* Sections */
+    .section { margin-bottom: 32px; }
+
+    .section-title {
+      font-family: 'Orbitron', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #60a5fa;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(59,130,246,0.15);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 14px;
+      background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+      border-radius: 2px;
+    }
+
+    /* Profile text */
+    .profile-text {
+      font-size: 13px;
+      color: #94a3b8;
+      line-height: 1.8;
+    }
+
+    /* Timeline items */
+    .timeline-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .timeline-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .timeline-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #3b82f6;
+      border: 2px solid rgba(59,130,246,0.3);
+      box-shadow: 0 0 8px rgba(59,130,246,0.4);
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .timeline-line {
+      width: 1px;
+      flex: 1;
+      background: rgba(59,130,246,0.15);
+      margin-top: 4px;
+    }
+
+    .timeline-year {
+      font-size: 10px;
+      font-family: 'Orbitron', monospace;
+      color: #3b82f6;
+      font-weight: 600;
+      white-space: nowrap;
+      margin-right: 8px;
+      width: 52px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .timeline-content h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 2px;
+    }
+
+    .timeline-content p {
+      font-size: 12px;
+      color: #64748b;
+      line-height: 1.5;
+    }
+
+    /* Skills */
+    .skill-item { margin-bottom: 14px; }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 5px;
+    }
+
+    .skill-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .skill-level {
+      font-size: 10px;
+      color: #3b82f6;
+      font-family: 'Orbitron', monospace;
+    }
+
+    .skill-bar {
+      height: 4px;
+      background: rgba(59,130,246,0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      box-shadow: 0 0 6px rgba(59,130,246,0.4);
+    }
+
+    /* Tags */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(59,130,246,0.08);
+      color: #60a5fa;
+      border: 1px solid rgba(59,130,246,0.2);
+      font-weight: 500;
+    }
+
+    /* Language */
+    .lang-item { margin-bottom: 10px; }
+    .lang-name { font-size: 12px; font-weight: 600; color: #cbd5e1; margin-bottom: 3px; }
+    .lang-level { font-size: 10px; color: #3b82f6; }
+
+    /* Info items */
+    .info-item {
+      font-size: 12px;
+      color: #64748b;
+      margin-bottom: 8px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .info-label {
+      color: #3b82f6;
+      font-weight: 600;
+      white-space: nowrap;
+      min-width: 80px;
+    }
+
+    /* Goal box */
+    .goal-box {
+      background: linear-gradient(135deg, rgba(139,92,246,0.1), rgba(59,130,246,0.08));
+      border: 1px solid rgba(139,92,246,0.25);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 20px;
+    }
+
+    .goal-box h4 {
+      font-family: 'Orbitron', monospace;
+      font-size: 10px;
+      color: #a78bfa;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .goal-box p {
+      font-size: 11px;
+      color: #94a3b8;
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    .cv-footer {
+      padding: 20px 48px;
+      border-top: 1px solid rgba(59,130,246,0.08);
+      text-align: center;
+      font-size: 11px;
+      color: #1e293b;
+    }
+
+    /* Print */
+    @media print {
+      body { background: #fff; padding: 0; }
+      .page { border: none; border-radius: 0; box-shadow: none; }
+    }
+
+    @media (max-width: 640px) {
+      .header { flex-direction: column; padding: 24px; gap: 16px; }
+      .body { grid-template-columns: 1fr; }
+      .main-col, .side-col { padding: 24px; border-right: none; }
+      .side-col { border-top: 1px solid rgba(59,130,246,0.08); }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Header -->
+    <div class="header">
+      <div class="avatar-box">AE</div>
+      <div class="header-info">
+        <h1>Ahmed Khaled Elkmashi</h1>
+        <div class="title">IT-Lernender &amp; KI-Enthusiast | Jena, Deutschland</div>
+        <div class="header-contacts">
+          <div class="contact-item">📧 <a href="mailto:ahmedelkmashi13@gmail.com">ahmedelkmashi13@gmail.com</a></div>
+          <div class="contact-item">📞 <a href="tel:+4917779529771">+49 177 7952971</a></div>
+          <div class="contact-item">📍 Jena, Deutschland</div>
+          <div class="contact-item">🎂 24.10.2003</div>
+          <div class="contact-item">🌍 Libysch</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="body">
+      <!-- Main column -->
+      <div class="main-col">
+
+        <!-- Profil -->
+        <div class="section">
+          <div class="section-title">Persönliches Profil</div>
+          <p class="profile-text">
+            Ich bin ein motivierter IT-Lernender und KI-Enthusiast aus Jena. Seit meiner Kindheit interessiere ich mich
+            für Computer, Technologie und Programmierung. Viele Grundlagen habe ich mir selbstständig beigebracht.
+            Ich lerne am besten praktisch – wenn man mir etwas einmal zeigt, merke ich es schnell und entwickle mich
+            eigenständig weiter. Ich bin ruhig, fokussiert, neugierig und ernsthaft bei meiner Lernreise. Mein Ziel
+            ist eine Ausbildung oder Einstiegsmöglichkeit im IT-Bereich.
+          </p>
+        </div>
+
+        <!-- Erfahrung -->
+        <div class="section">
+          <div class="section-title">Erfahrung &amp; Werdegang</div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">2024</div>
+            <div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+            <div class="timeline-content">
+              <h4>Freiwilligenarbeit – BI Asyl e.V., Jena</h4>
+              <p>Aktive Mitarbeit bei der Beratungsinitiative Asyl e.V. Unterstützung und soziales Engagement in der Gemeinschaft.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">2026</div>
+            <div class="timeline-left"><div class="timeline-dot" style="background:#8b5cf6;box-shadow:0 0 8px rgba(139,92,246,0.5)"></div></div>
+            <div class="timeline-content">
+              <h4>Schulplatz Techn. Bereich (TAI)</h4>
+              <p>Staatliches Berufsbildendes Schulzentrum Jena-Göschwitz – technischer und IT-naher Schulbereich.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projekte -->
+        <div class="section">
+          <div class="section-title">Lernprojekte</div>
+
+          <div class="timeline-item">
+            <div class="timeline-year"></div>
+            <div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+            <div class="timeline-content">
+              <h4>🧠 AI CV Assistant</h4>
+              <p>Persönliches KI-Lernprojekt, das Fragen über meinen Lebenslauf und meine Ziele beantwortet.</p>
+              <div class="tags"><span class="tag">OpenAI API</span><span class="tag">React</span><span class="tag">AI</span></div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year"></div>
+            <div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div>
+            <div class="timeline-content">
+              <h4>🚀 Smart Portfolio Website</h4>
+              <p>Futuristisches Portfolio um meine Motivation, Kenntnisse und Ziele professionell zu präsentieren.</p>
+              <div class="tags"><span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">UI/UX</span></div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year"></div>
+            <div class="timeline-left"><div class="timeline-dot"></div></div>
+            <div class="timeline-content">
+              <h4>💻 System Info Learning Tool</h4>
+              <p>Lernprojekt für Linux-Grundlagen, Systeminformationen und IT-System-Verständnis.</p>
+              <div class="tags"><span class="tag">Linux</span><span class="tag">Python</span><span class="tag">Systems</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Side column -->
+      <div class="side-col">
+
+        <!-- Ausbildung -->
+        <div class="section">
+          <div class="section-title">Ausbildung</div>
+          <div class="info-item"><span class="info-label">2021–2022</span><span>Sekundarschulabschluss, Libyen</span></div>
+        </div>
+
+        <!-- Kenntnisse -->
+        <div class="section">
+          <div class="section-title">Technische Kenntnisse</div>
+
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">🐧 Linux</span><span class="skill-level">60%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:60%"></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">🤖 KI-Tools</span><span class="skill-level">80%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:80%;background:linear-gradient(90deg,#8b5cf6,#a78bfa)"></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">🐍 Python</span><span class="skill-level">30%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:30%"></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">🌐 HTML/CSS</span><span class="skill-level">30%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:30%"></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">🖥️ IT-Systeme</span><span class="skill-level">45%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:45%"></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">🔧 Hardware</span><span class="skill-level">40%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:40%;background:linear-gradient(90deg,#10b981,#34d399)"></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">📡 Netzwerke</span><span class="skill-level">35%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:35%;background:linear-gradient(90deg,#f59e0b,#fbbf24)"></div></div>
+          </div>
+
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">💡 Problemlösung</span><span class="skill-level">75%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width:75%;background:linear-gradient(90deg,#ec4899,#f472b6)"></div></div>
+          </div>
+        </div>
+
+        <!-- Sprachen -->
+        <div class="section">
+          <div class="section-title">Sprachen</div>
+          <div class="lang-item"><div class="lang-name">Arabisch</div><div class="lang-level">Muttersprache</div></div>
+          <div class="lang-item"><div class="lang-name">Deutsch</div><div class="lang-level">B1</div></div>
+          <div class="lang-item"><div class="lang-name">Englisch</div><div class="lang-level">B1</div></div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="section">
+          <div class="section-title">Soft Skills</div>
+          <div class="tags">
+            <span class="tag">Schneller Lerner</span>
+            <span class="tag">Praktisch</span>
+            <span class="tag">Neugierig</span>
+            <span class="tag">Ruhig</span>
+            <span class="tag">Motiviert</span>
+            <span class="tag">Selbstständig</span>
+            <span class="tag">Offen</span>
+            <span class="tag">Verantwortungsbewusst</span>
+          </div>
+        </div>
+
+        <!-- Ziel -->
+        <div class="goal-box">
+          <h4>🎯 Mein Ziel</h4>
+          <p>Eine Ausbildung, ein Praktikum oder eine Einstiegsmöglichkeit im IT-Bereich finden, um meine Fähigkeiten praktisch weiterzuentwickeln und beruflich zu wachsen.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="cv-footer">
+      Ahmed Khaled Elkmashi · ahmedelkmashi13@gmail.com · +49 177 7952971 · Jena, Deutschland
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:24px;">
+    <button onclick="window.print()"
+      style="padding:12px 28px;border-radius:10px;font-family:'Exo 2',sans-serif;font-weight:600;font-size:14px;cursor:pointer;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;border:1px solid rgba(96,165,250,0.3);box-shadow:0 0 20px rgba(59,130,246,0.3)">
+      📄 Als PDF drucken / speichern
+    </button>
+  </div>
+</body>
+</html>
